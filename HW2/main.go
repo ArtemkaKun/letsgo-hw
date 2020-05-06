@@ -40,5 +40,5 @@ func main() {
 	Paul.BirthDayToday()
 	fmt.Println(fmt.Sprintf("Go to pensija? %v", Paul.IsPoraNaPensiju()))
 
-	panic("Panic here!")
+	//panic("Panic here!")
 }
