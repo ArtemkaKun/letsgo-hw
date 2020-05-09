@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+type ID int
+
 func main() {
 	//boss := Boss{
 	//	Employee: Employee{
@@ -48,41 +50,35 @@ func main() {
 	//	},
 	//}
 	//
-	//Workers := make(map[int]Worker)
+	//Workers := make(map[ID]interface{})
 	//
 	//Workers[1] = boss
 	//Workers[2] = director
 	//Workers[3] = manager
 	//Workers[4] = plankton
 	//Workers[5] = staff
+	//Workers[6] = 342
 	//
-	//for _, data := range Workers {
-	//	fmt.Println(GetWorkerData(data))
-	//}
-	//a := byte('2')
-	fmt.Println(15)
+	//WhatTypeIs(Workers)
+	fmt.Println(CheckCardNumber("4561261212345467"))
+	fmt.Println(CalcDistsance("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT"))
 }
 
-func do(i interface{}) {
-	switch val := i.(type) {
-	case int:
-		if v, ok := i.(int); ok {
-			fmt.Println(v)
-		} else {
-			fmt.Println("Cannot change %T to int", val)
-		}
-	case string:
-		if v, ok := i.(string); ok {
-			fmt.Println(v)
-		} else {
-			fmt.Println("Cannot change %T to string", val)
-		}
-	case float32:
-		if v, ok := i.(float32); ok {
-			fmt.Println(v)
-		} else {
-			fmt.Println("Cannot change %T to float32", val)
+func WhatTypeIs(workers map[ID]interface{}) {
+	for _, val := range workers {
+		switch v := val.(type) {
+		case Boss:
+			fmt.Println("I'm BOSS")
+		case Director:
+			fmt.Println("I'm DIRECTOR")
+		case Manager:
+			fmt.Println("I'm MANAGER")
+		case OfficePlankton:
+			fmt.Println("I'm PLANKTON")
+		case OfficeStaff:
+			fmt.Println("I'm STAFF")
+		default:
+			fmt.Printf("I'm now working here! I'm %v\n", v)
 		}
 	}
-
 }
